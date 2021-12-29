@@ -1,13 +1,13 @@
 var numero = document.getElementById("calculo");
 console.log(numero.textContent);
-function number(num) {
-    numero.innerText += num.innerText
-    
+function calculo(num) {
+    let tamanho = numero.innerText.length - 1;
+    let ultimo_numero = numero.innerText[tamanho];
+
+    if (isNaN(ultimo_numero) == true || isNaN(num.innerText) == true) {
+        numero.innerText = `${numero.innerText} ${num.innerText}`;
+    } else {
+        numero.innerText += num.innerText;
+    }
 }
-function calculo() {
-    let teste = JSON.parse(numero.innerText);
-    console.log(teste);
-}
-function soma(num) {
-    numero.innerText = `${numero.innerText} +`;
-}
+
