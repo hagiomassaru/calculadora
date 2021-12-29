@@ -10,25 +10,25 @@
     <div class="flex-container">
         <h1 type="text" id="calculo"></h1>
         <div class="numeros">
-            <button class="1" onclick="calculo(this)">1</button>
-            <button class="2" onclick="calculo(this)" >2</button>
-            <button class="3" onclick="calculo(this)" >3</button>
-            <button class="4" onclick="calculo(this)" >4</button>
-            <button class="5" onclick="calculo(this)" >5</button>
-            <button class="6" onclick="calculo(this)" >6</button>
-            <button class="7" onclick="calculo(this)" >7</button>
-            <button class="8" onclick="calculo(this)" >8</button>
-            <button class="9" onclick="calculo(this)" >9</button>
-            <button class="=" onclick="">=</button>
+            <button class="1" onclick="logicaDeTeclas(this)">1</button>
+            <button class="2" onclick="logicaDeTeclas(this)" >2</button>
+            <button class="3" onclick="logicaDeTeclas(this)" >3</button>
+            <button class="4" onclick="logicaDeTeclas(this)" >4</button>
+            <button class="5" onclick="logicaDeTeclas(this)" >5</button>
+            <button class="6" onclick="logicaDeTeclas(this)" >6</button>
+            <button class="7" onclick="logicaDeTeclas(this)" >7</button>
+            <button class="8" onclick="logicaDeTeclas(this)" >8</button>
+            <button class="9" onclick="logicaDeTeclas(this)" >9</button>
+            <button class="=" onclick="calculoTecla()">=</button>
         </div>
         <div class="sinais">
-            <button class="mais" onclick="calculo(this)">+</button>
-            <button class="menos" onclick="calculo(this)">-</button>
-            <button class="multi" onclick="calculo(this)">*</button>
-            <button class="dividir" onclick="calculo(this)">/</button>
+            <button class="mais" onclick="logicaDeTeclas(this)">+</button>
+            <button class="menos" onclick="logicaDeTeclas(this)">-</button>
+            <button class="multi" onclick="logicaDeTeclas(this)">*</button>
+            <button class="dividir" onclick="logicaDeTeclas(this)">/</button>
             <button class="porcen" onclick="">%</button>
-            <button class="raiz" onclick="">raiz</button>
-            <button class="limpar" onclick="">limpar</button>
+            <button class="raiz" onclick="logicaDeTeclas(this)">√</button>
+            <button class="limpar" onclick="limpar()">limpar</button>
 
     </div>
     <script src="script.js"></script>
