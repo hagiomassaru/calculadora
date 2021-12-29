@@ -1,13 +1,13 @@
 var numero = document.getElementById("calculo");
-console.log(numero.textContent)
+console.log(numero.textContent);
 function number(num) {
-    console.log(numero.innerText += num.innerText);
-    // console.log(numero.innerText = numero.innerText + num);
+    numero.innerText += num.innerText
+    
 }
 function calculo() {
     let teste = JSON.parse(numero.innerText);
-    console.log(teste)
+    console.log(teste);
 }
-function soma(){
-    
+function soma(num) {
+    numero.innerText = `${numero.innerText} +`;
 }
