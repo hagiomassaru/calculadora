@@ -12,9 +12,7 @@ function logicaDeTeclas(num) {
     console.log(numero_enviado);
     let tipo_ultimo_numero = typeof ultimo_numero;
 
-    if (tipo_ultimo_numero == "undefined") {
-    }
-
+    
     switch (isNaN(ultimo_numero)) {
         case true:
             if (tipo_ultimo_numero == "undefined") {
