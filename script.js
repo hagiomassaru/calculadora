@@ -2,29 +2,56 @@ var numero = document.getElementById("calculo");
 var indice_numero = 0;
 console.log(numero.textContent);
 function logicaDeTeclas(num) {
+    console.log(indice_numero);
     let lista_simbolos = ["/", "*", "-", "+"];
-    let lista_simbolos_especiais = ["%", "√"];
+    let lista_simbolos2 = ["/", "*", "-", "+", "%"];
     let lista_numero = /[0-9]/;
     let tamanho = numero.innerText.length;
     let ultimo_numero = numero.innerText[tamanho - 1];
-    console.log(ultimo_numero);
     let numero_enviado = num.innerText;
-    console.log(numero_enviado);
     let tipo_ultimo_numero = typeof ultimo_numero;
 
-    
     switch (isNaN(ultimo_numero)) {
         case true:
+            if (
+                indice_numero == 0 &&
+                lista_simbolos2.includes(numero_enviado) == true
+            ) {
+                alert("Proibido iniciar com simbolos");
+                break;
+            }
+
+            if (numero_enviado == "%") {
+                if (ultimo_numero == "%") {
+                    alert(
+                        "Nao e permitido duas sinais de porcentagem consecutivas"
+                    );
+                    break;
+                } else {
+                    alert(
+                        "Nao e permitido duas sinais de porcentagem subsequentes de sinais"
+                    );
+                    break;
+                }
+            }
+
             if (tipo_ultimo_numero == "undefined") {
                 numero.innerText = numero.innerText.concat(numero_enviado);
                 break;
             }
 
+            // Caso o valo seja raiz
             if (ultimo_numero == "√" && numero_enviado != "√") {
                 numero.innerText = numero.innerText.concat(numero_enviado);
                 break;
             } else if (ultimo_numero == "√" && numero_enviado == "√") {
                 alert("Nao e permitido duas raizes consecutivas");
+                break;
+            } else if (
+                lista_simbolos.includes(numero_enviado) &&
+                lista_simbolos.includes(ultimo_numero)
+            ) {
+                alert("Nao e permitido sinais consecutivos");
                 break;
             }
 
@@ -67,26 +94,8 @@ function logicaDeTeclas(num) {
             }
             break;
     }
-    console.log(tipo_ultimo_numero);
-    console.log(isNaN(ultimo_numero));
-    console.log(lista_simbolos.includes(numero_enviado));
-    console.log(lista_numero.test(ultimo_numero));
 
-    // if (isNaN(ultimo_numero) == true || isNaN(num.innerText) == true) {
-    //     if (ultimo_numero == "√") {
-    //         if (num.innerText == "√") {
-    //             alert("Raiz Quadrada deve ser acompanhado com um numero");
-    //         } else {
-    //             numero.innerText += num.innerText;
-    //         }
-    //     } else {
-    //         numero.innerText = `${numero.innerText} ${num.innerText}`;
-    //     }
-    // } else {
-    //     numero.innerText += num.innerText;
-    // }
     indice_numero++;
-    console.log(indice_numero);
 }
 
 function calculoTecla() {
@@ -109,6 +118,9 @@ function calculoTecla() {
             lista_calculo[
                 indice /*como podemos ver como a variável indice foi util */
             ] = numero_raiz;
+        }
+        if (i.includes('%') == true){
+            
         }
     }
     numero.innerText = eval(lista_calculo.toString().replace(/,/g, ""));
