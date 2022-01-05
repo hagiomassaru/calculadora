@@ -1,8 +1,6 @@
 var numero = document.getElementById("calculo");
 var indice_numero = 0;
-console.log(numero.textContent);
 function logicaDeTeclas(num) {
-    console.log(indice_numero);
     let lista_simbolos = ["/", "*", "-", "+"];
     let lista_simbolos2 = ["/", "*", "-", "+", "%"];
     let lista_numero = /[0-9]/;
@@ -119,8 +117,15 @@ function calculoTecla() {
                 indice /*como podemos ver como a variável indice foi util */
             ] = numero_raiz;
         }
-        if (i.includes('%') == true){
-            
+        switch (i.includes("%")) {
+            case true:
+                let numero_porcento = i.split("");
+                if (!isNaN(lista_calculo[indice + 1]) == true) {
+                    numero_porcento.pop();
+
+                    console.log(numero_porcento);
+                    console.log(lista_calculo);
+                }
         }
     }
     numero.innerText = eval(lista_calculo.toString().replace(/,/g, ""));
