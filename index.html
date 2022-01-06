@@ -2,37 +2,46 @@
 <html lang="ptBR">
 
 <head>
+    <!-- fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <!-- /**/ font-family: 'VT323', monospace; /**/ -->
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Calculadora</title>
 </head>
 
 <body>
     <div class="flex-container">
-        <h1 type="text" id="calculo"></h1>
-        <div class="numeros">
-            <button class="0" onclick="logicaDeTeclas(this)">0</button>
-            <button class="1" onclick="logicaDeTeclas(this)">1</button>
-            <button class="2" onclick="logicaDeTeclas(this)">2</button>
-            <button class="3" onclick="logicaDeTeclas(this)">3</button>
-            <button class="4" onclick="logicaDeTeclas(this)">4</button>
-            <button class="5" onclick="logicaDeTeclas(this)">5</button>
-            <button class="6" onclick="logicaDeTeclas(this)">6</button>
-            <button class="7" onclick="logicaDeTeclas(this)">7</button>
-            <button class="8" onclick="logicaDeTeclas(this)">8</button>
-            <button class="9" onclick="logicaDeTeclas(this)">9</button>
-            <button class="=" onclick="calculoTecla()">=</button>
+        <div class="calculo_decoration">
+            <h1 type="text" id="calculo"></h1>
         </div>
-        <div class="sinais">
-            <button class="mais" onclick="logicaDeTeclas(this)">+</button>
-            <button class="menos" onclick="logicaDeTeclas(this)">-</button>
-            <button class="multi" onclick="logicaDeTeclas(this)">*</button>
-            <button class="dividir" onclick="logicaDeTeclas(this)">/</button>
-            <button class="porcen" onclick="logicaDeTeclas(this)">%</button>
-            <button class="raiz" onclick="logicaDeTeclas(this)">√</button>
-            <button class="limpar" onclick="limpar()">limpar</button>
-
-    </div>
-    <script src="script.js"></script>
+        <div class="flex-container-numeros">
+            <div class="numeros">
+                <button id="id1" class="button-numeros" onclick="logicaDeTeclas(this)">1</button>
+                <button id="id2" class="button-numeros" onclick="logicaDeTeclas(this)">2</button>
+                <button id="id3" class="button-numeros" onclick="logicaDeTeclas(this)">3</button>
+                <button id="id4" class="button-numeros" onclick="logicaDeTeclas(this)">4</button>
+                <button id="id5" class="button-numeros" onclick="logicaDeTeclas(this)">5</button>
+                <button id="id6" class="button-numeros" onclick="logicaDeTeclas(this)">6</button>
+                <button id="id7" class="button-numeros" onclick="logicaDeTeclas(this)">7</button>
+                <button id="id8" class="button-numeros" onclick="logicaDeTeclas(this)">8</button>
+                <button id="id9" class="button-numeros" onclick="logicaDeTeclas(this)">9</button>
+                <button id="id0" class="button-numeros" onclick="logicaDeTeclas(this)">0</button>
+            </div>
+            <div class="sinais">
+                <button class="button-sinais" id="limpar" onclick="limpar()">C</button>
+                <button class="button-sinais" id="mais" onclick="logicaDeTeclas(this)">+</button>
+                <button class="button-sinais" id="menos" onclick="logicaDeTeclas(this)">-</button>
+                <button class="button-sinais" id="multi" onclick="logicaDeTeclas(this)">*</button>
+                <button class="button-sinais" id="dividir" onclick="logicaDeTeclas(this)">/</button>
+                <button class="button-sinais" id="porcen" onclick="logicaDeTeclas(this)">%</button>
+                <button class="button-sinais" id="raiz" onclick="logicaDeTeclas(this)">√</button>
+                <button id="idigual" class="button-sinais" onclick="calculoTecla()">=</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
 </body>
 
 </html>
