@@ -1,7 +1,8 @@
 var numero = document.getElementById("calculo");
 var indice_numero = 0;
+var lista_simbolos = ["/", "*", "-", "+"];
+
 function logicaDeTeclas(num) {
-    let lista_simbolos = ["/", "*", "-", "+"];
     let lista_simbolos2 = ["/", "*", "-", "+", "%"];
     let lista_numero = /[0-9]/;
     let tamanho = numero.innerText.length;
@@ -101,11 +102,11 @@ function calculoTecla() {
     let indice = -1; // essa variavel serve para podermos usar o indice do elemento que estamos trabalhando no for
     for (var i of lista_calculo) {
         // aqui vamos varrer cada elemento
+        let largura_elemento = i.length;
         indice++;
         if (i.includes("√") == true) {
             let numero_raiz = i.split("");
             // percebi que shift em strings nao funciona, então precisei transformar em array
-            let largura_elemento = i.length;
             numero_raiz = parseInt(
                 numero_raiz
                     .splice(1, largura_elemento)
@@ -117,15 +118,37 @@ function calculoTecla() {
                 indice /*como podemos ver como a variável indice foi util */
             ] = numero_raiz;
         }
-        switch (i.includes("%")) {
-            case true:
-                let numero_porcento = i.split("");
-                if (!isNaN(lista_calculo[indice + 1]) == true) {
-                    numero_porcento.pop();
+        // Aqui e a parte que realizo o calculo caso seja porcentagem
+        if (i.includes("%") == true) {
+            let numero_porcento = i.split("");
+            if (!isNaN(lista_calculo[indice + 1]) == true) {
+                numero_porcento.pop();
+                numero_porcento = numero_porcento.toString().replace(/,/g, "");
+                let calculo_porcentagem =
+                    (numero_porcento * lista_calculo[indice + 1]) / 100;
+                lista_calculo[indice] = calculo_porcentagem;
+                lista_calculo.splice(indice + 1, 1);
+                
 
-                    console.log(numero_porcento);
+                console.log(calculo_porcentagem);
+                console.log(numero_porcento);
+                console.log(lista_calculo);
+            } else {
+                alert(
+                    `A expressão ${lista_calculo[indice]} ${
+                        lista_calculo[indice + 1]} nao e valida, por isso ela nao sera calculada.
+                    }`
+                );
+                lista_calculo.splice(indice, 2);
+                console.log(lista_calculo);
+                if(indice > 0){
+                    lista_calculo.splice(indice-1,1);
+    
                     console.log(lista_calculo);
                 }
+            }
+
+            
         }
     }
     numero.innerText = eval(lista_calculo.toString().replace(/,/g, ""));
