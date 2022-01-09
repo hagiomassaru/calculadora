@@ -4,7 +4,7 @@
 
 ## Descrição 📝
 
-Esse projeto teve o intuito de testar meus conhecimentos em javascript,html e css. 
+Esse projeto tem o intuito de testar meus conhecimentos em javascript,html e css. 
 
 ## Tecnologias 🖥️
 
